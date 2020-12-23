@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'whitney-light';
+    src: url('fonts/whitneylight.woff') format("woff");
+}
+
+@font-face {
+    font-family: 'whitney';
+    src: url('fonts/whitneymedium.woff') format("woff");
+}
+
+@font-face {
+    font-family: 'whitney-semibold';
+    src: url('fonts/whitneybold.woff') format("woff");
+}
+
+@font-face {
+    font-family: 'whitney-bold';
+    src: url('fonts/whitneysemibold.woff') format("woff");
+}
+
+@font-face {
+    font-family: 'whitney-book';
+    src: url('fonts/whitneybook.woff') format("woff");
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0 0;
+    margin: 0 0;
+    background-color: #f1f1f1;
+    font-family: 'whitney', sans-serif;
+    min-height: 200vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.bg-blue {
+    background-color: #4363d8;
+}
+
+.main-header {
+    background-color: #4363d8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
