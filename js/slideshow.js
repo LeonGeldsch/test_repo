@@ -49,16 +49,16 @@ function turnSlideRight () {
     setTimeout(function () {
         slideshowImageOne.classList.remove("slideshow-image-1");
         slideshowImageOne.classList.add("slideshow-image-2");
-        //slideshowImageOne.style.transform = null;
-        //slideshowImageOne.style.width = null;
+        slideshowImageOne.style.transform = null;
+        slideshowImageOne.style.width = null;
         slideshowImageTwo.classList.remove("slideshow-image-2");
         slideshowImageTwo.classList.add("slideshow-image-3");
-        //slideshowImageTwo.style.transform = null;
-        //slideshowImageTwo.style.width = null;
+        slideshowImageTwo.style.transform = null;
+        slideshowImageTwo.style.width = null;
         slideshowImageThree.classList.remove("slideshow-image-3");
         slideshowImageThree.classList.add("slideshow-image-1");
-        //slideshowImageThree.style.transform = null;
-        //slideshowImageThree.style.width = null;
+        slideshowImageThree.style.transform = null;
+        slideshowImageThree.style.width = null;
 
     }, 4010);
 }
