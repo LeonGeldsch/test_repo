@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/wave.svg">
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <title>Portfolio</title>
@@ -13,16 +14,28 @@
             <a href=""><h3>Leon Geldschläger</h3></a>
             <a href="">Contact</a>
             <a href="">Web Projects</a>
+            <!--
             <ul class="dropdown">
                 <li><a href="">Discord Clone</a></li>
                 <li><a href="">Bakery</a></li>
-                <li><a href=""></a></li>
+                <li><a href="">item3</a></li>
             </ul>
-            <a href="">Miniatures</a>
+            -->
+            <a href="">Miniatures/Sculpting</a>
             <a href="">Languages</a>
-            <span class="material-icons-outlined download-icon">menu</span>
+            <span class="material-icons-outlined">menu</span>
         </header>
-        
+        <div class="slideshow-container">
+            <img class="slideshow-image-1" src="img/discord-clone.PNG">
+            <img class="slideshow-image-2" src="img/google.PNG">
+            <img class="slideshow-image-3" src="img/stackoverflow.PNG">
+            <div class="btn-wrapper">
+                <button class="btn-left">Left</button>
+                <button class="btn-right">Right</button>
+            </div>
+        </div>
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="js/slideshow.js"></script>
 </body>
 </html>
