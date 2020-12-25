@@ -1,4 +1,4 @@
 # portfolio
 
 
-GutHub Pages: https://leongeldsch.github.io/portfolio/
+GitHub Pages: https://leongeldsch.github.io/portfolio/
