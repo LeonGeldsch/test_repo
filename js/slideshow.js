@@ -5,33 +5,48 @@ var allSlides = document.querySelectorAll(".slideshow-image")
 
 var tl = gsap.timeline();
 
-/*
-gsap.set(".slideshow-image-1", {
-    zIndex:99
-})
-*/
+var firstSlideIndex = 0;
 
 
-
-
-function startSlideShow() {
-   let index = 0
-    allSlides.forEach(slide => {
-        setTimeout(function () {
-            zeroToOne(slide)
-            oneToTwo(slide, 1)
-            twoToThree(slide, 2)
-            threeToZero(slide, 3)
-            console.log(index);
-        }, index*1000)
-        index++
-    });
+function turnSlideRight () {
+    console.log(firstSlideIndex);
+        zeroToOne(allSlides[firstSlideIndex % allSlides.length])
+        oneToTwo(allSlides[(firstSlideIndex+3) % allSlides.length])
+        twoToThree(allSlides[(firstSlideIndex+2) % allSlides.length])
+        threeToZero(allSlides[(firstSlideIndex+1) % allSlides.length])
+        firstSlideIndex++
 }
-/* zeroToOne(allSlides[0])
-oneToTwo(allSlides[0], 1)
-twoToThree(allSlides[0], 2)
-threeToZero(allSlides[0], 3)
- */
+
+function turnSlideLeft () {
+    console.log(firstSlideIndex);
+        zeroToOne(allSlides[firstSlideIndex % allSlides.length])
+        oneToTwo(allSlides[(firstSlideIndex+3) % allSlides.length])
+        twoToThree(allSlides[(firstSlideIndex+2) % allSlides.length])
+        threeToZero(allSlides[(firstSlideIndex+1) % allSlides.length])
+        firstSlideIndex--
+}
+
+
+
+
+
+function startSlideShow () {
+    zeroToOne(allSlides[0])
+    oneToTwo(allSlides[0], 1)
+    twoToThreeStart(allSlides[0], 2)
+
+    zeroToOne(allSlides[1], 1)
+    oneToTwo(allSlides[1], 2)
+
+    zeroToOne(allSlides[2], 2)
+
+    firstSlideIndex = 3
+}
+
+
+function percentWidthToPixel(_elem, _perc){
+    return (_elem.offsetWidth/100)* parseFloat(_perc);
+}
 
 function zeroToOne (slide, delay = 0) {
     gsap.to(slide, {
@@ -41,7 +56,6 @@ function zeroToOne (slide, delay = 0) {
         ease: "power1"
     })
 }
-
 function oneToTwo (slide, delay = 0) {
     gsap.set(slide, {
         zIndex:1,
@@ -56,7 +70,15 @@ function oneToTwo (slide, delay = 0) {
     })
 }
 function twoToThree (slide, delay = 0) {
-
+    gsap.to(slide, {
+        x:percentWidthToPixel(slide.parentNode, 50) - percentWidthToPixel(slide, 50) / 2.5,
+        width:percentWidthToPixel(slide.parentNode, 20),
+        duration: 1,
+        delay: delay,
+        ease: "power1"
+    })
+}
+function twoToThreeStart (slide, delay = 0) {
     gsap.to(slide, {
         x:percentWidthToPixel(slide.parentNode, 50) - percentWidthToPixel(slide, 50),
         width:percentWidthToPixel(slide.parentNode, 20),
@@ -64,9 +86,12 @@ function twoToThree (slide, delay = 0) {
         delay: delay,
         ease: "power1"
     })
-
 }
 function threeToZero (slide, delay = 0) {
+    gsap.set(slide, {
+        zIndex:0,
+        delay: delay
+    })
     gsap.to(slide, {
         x:0,
         duration: 1,
@@ -76,81 +101,9 @@ function threeToZero (slide, delay = 0) {
 }
 
 
-function percentWidthToPixel(_elem, _perc){
-    return (_elem.offsetWidth/100)* parseFloat(_perc);
-}
-
-function turnSlideRight () {
-    let slideshowImageOne = document.querySelector(".slideshow-image-1");
-    let slideshowImageTwo = document.querySelector(".slideshow-image-2");
-    let slideshowImageThree = document.querySelector(".slideshow-image-3");
 
 
-    gsap.to(".slideshow-image-1", {
-        duration:4,
-        x:percentWidthToPixel(slideshowImageOne.parentNode, 50) - percentWidthToPixel(slideshowImageTwo, 50),
-        width:percentWidthToPixel(slideshowImageOne.parentNode, 50),
-        ease:"power1"
-    })
-    
-    
-    gsap.to(".slideshow-image-2", {
-        duration:4,
-        x:percentWidthToPixel(slideshowImageOne.parentNode, 50) - percentWidthToPixel(slideshowImageThree, 50),
-        width:percentWidthToPixel(slideshowImageOne.parentNode, 10),
-        ease:"power1"
-    })
-    
-    
-    gsap.to(".slideshow-image-3", {
-        duration:4,
-        x:-1 * (percentWidthToPixel(slideshowImageOne.parentNode, 100) - percentWidthToPixel(slideshowImageOne, 100)),
-        ease:"power1"
-    })
+slideRightButton.addEventListener('click', turnSlideRight)
+slideLeftButton.addEventListener('click', turnSlideLeft)
 
-    setTimeout(function () {
-        slideshowImageOne.classList.remove("slideshow-image-1");
-        slideshowImageOne.classList.add("slideshow-image-2");
-        slideshowImageOne.style.transform = null;
-        slideshowImageOne.style.width = null;
-        slideshowImageTwo.classList.remove("slideshow-image-2");
-        slideshowImageTwo.classList.add("slideshow-image-3");
-        slideshowImageTwo.style.transform = null;
-        slideshowImageTwo.style.width = null;
-        slideshowImageThree.classList.remove("slideshow-image-3");
-        slideshowImageThree.classList.add("slideshow-image-1");
-        slideshowImageThree.style.transform = null;
-        slideshowImageThree.style.width = null;
-
-    }, 4010);
-}
-
-function slideshowRight () {
-    let slideshowImageOne = document.querySelector(".slideshow-image-1");
-    let slideshowImageTwo = document.querySelector(".slideshow-image-2");
-    let slideshowImageThree = document.querySelector(".slideshow-image-3");
-
-    slideshowImageOne.classList.remove("slideshow-image-1");
-    slideshowImageOne.classList.add("slideshow-image-2");
-    slideshowImageOne.style.transform = null;
-    slideshowImageOne.style.width = null;
-    slideshowImageTwo.classList.remove("slideshow-image-2");
-    slideshowImageTwo.classList.add("slideshow-image-3");
-    slideshowImageTwo.style.transform = null;
-    slideshowImageTwo.style.width = null;
-    slideshowImageThree.classList.remove("slideshow-image-3");
-    slideshowImageThree.classList.add("slideshow-image-1");
-    slideshowImageThree.style.transform = null;
-    slideshowImageThree.style.width = null;
-
-    gsap.from(".slideshow-image-2", {
-        duration:4,
-        x:-1 * (percentWidthToPixel(slideshowImageOne.parentNode, 100) - percentWidthToPixel(slideshowImageOne, 100)),
-        width:percentWidthToPixel(slideshowImageOne.parentNode, 50),
-        ease:"power1"
-    })
-    
-}
-
-
-slideRightButton.addEventListener('click', startSlideShow)
+startSlideShow()
