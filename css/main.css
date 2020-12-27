@@ -62,7 +62,7 @@ ul {
     padding: 0 50px;
 }
 
-.slideshow-container {
+.slideshow-inner-container {
     display: flex;
     align-items: center;
     position: relative;
@@ -71,10 +71,16 @@ ul {
     justify-content: center;
 }
 
+.slideshow-container {
+    background-color: grey;
+    width: 100%;
+    padding: 0 5%;
+}
+
 .slideshow-container img {
     position: absolute;
     width: 20%;
-    top: 20%;
+    top: 15%;
 }
 
 /*

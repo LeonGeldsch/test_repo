@@ -69,7 +69,7 @@ function oneToTwo (slide, delay = 0) {
     })
     gsap.to(slide, {
         x:0,
-        y:percentWidthToPixel(slide.parentNode, 3),
+        y:percentWidthToPixel(slide.parentNode, 4),
         width:percentWidthToPixel(slide.parentNode, 50),
         duration: 1,
         delay: delay,
