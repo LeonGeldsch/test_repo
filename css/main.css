@@ -33,6 +33,7 @@ body {
     background-color: #f1f1f1;
     font-family: 'whitney', sans-serif;
     min-height: 200vh;
+    overflow-y: hidden;
 }
 
 a {
