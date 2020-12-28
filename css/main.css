@@ -33,6 +33,7 @@ body {
     background-color: #f1f1f1;
     font-family: 'whitney', sans-serif;
     min-height: 200vh;
+    overflow-x: hidden;
 }
 
 a {
@@ -75,7 +76,7 @@ ul {
 .slideshow-container {
     background-color: grey;
     width: 100%;
-    padding: 0 0;
+    padding: 0 5%;
     z-index: 0;
 }
 

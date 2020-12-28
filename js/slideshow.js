@@ -5,7 +5,7 @@ var allSlides = document.querySelectorAll(".slideshow-image")
 
 var tl = gsap.timeline()
 
-var firstSlideIndex = 1
+var firstSlideIndex = 0
 
 var maxShownSlides = 6
 
@@ -46,6 +46,9 @@ function turnSlideLeft () {
     */
 
    firstSlideIndex--
+   if (firstSlideIndex <= 0) {
+       firstSlideIndex = allSlides.length - 1
+   }
    console.log(firstSlideIndex);
    for (let i = 0; i < allSlides.length; i++) {
        moveSlideTo(allSlides[i], (i + firstSlideIndex) % allSlides.length)
