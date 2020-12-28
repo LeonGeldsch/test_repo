@@ -81,6 +81,7 @@ ul {
     position: absolute;
     width: 15%;
     top: 15%;
+    cursor: pointer;
 }
 
 /*
@@ -102,6 +103,7 @@ ul {
 
 .slideshow-container button {
     width: 100px;
+    cursor: pointer;
 }
 
 .btn-wrapper {
