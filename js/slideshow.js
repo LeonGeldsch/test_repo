@@ -46,7 +46,7 @@ function turnSlideLeft () {
     */
 
    firstSlideIndex--
-   if (firstSlideIndex <= 0) {
+   if (firstSlideIndex <= -1) {
        firstSlideIndex = allSlides.length - 1
    }
    console.log(firstSlideIndex);
@@ -188,7 +188,7 @@ function moveSlideTo (slide, index, delay = 0) {
             slide, 
             percentWidthToPixel(slide.parentNode, 0),
             percentHeightToPixel(slide.parentNode, 0),
-            percentWidthToPixel(slide.parentNode, 10),
+            percentWidthToPixel(slide.parentNode, 15),
             1,
             "power1",
             delay
