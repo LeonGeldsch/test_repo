@@ -69,12 +69,14 @@ ul {
     background-color: grey;
     height: 80vh;
     justify-content: center;
+    z-index: 0;
 }
 
 .slideshow-container {
     background-color: grey;
     width: 100%;
-    padding: 0 5%;
+    padding: 0 0;
+    z-index: 0;
 }
 
 .slideshow-container img {
