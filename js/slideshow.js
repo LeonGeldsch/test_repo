@@ -19,8 +19,6 @@ var dragDirection = null
 
 var dragInterval = null
 
-
-
 /*
 var shownSlides = allSlides.length
 
@@ -53,7 +51,6 @@ function turnSlideLeft () {
     zeroToThree(allSlides[(firstSlideIndex) % allSlides.length]) // 3
     threeToZero(allSlides[(firstSlideIndex+3) % allSlides.length]) // 2
     firstSlideIndex--
-
     */
 
    firstSlideIndex--
@@ -353,22 +350,17 @@ document.addEventListener('keydown', function(e) {
     console.log(e.code);
 })
 
-slideContainer.addEventListener('dragover', function (event) {
-    if (dragStart - event.clientX >= 0) {
-        dragDirection = "left"
-    } else {
-        dragDirection = "right"
-    }
-})
 
 body.addEventListener('dragstart', function (event) {
     dragStart = event.clientX
 
-    if (dragDirection == "left") {
-        turnSlideLeft()
-    } else {
-        turnSlideRight()
-    }
+    setTimeout(() => {
+        if (dragDirection == "left") {
+            turnSlideLeft()
+        } else {
+            turnSlideRight()
+        }
+    }, 20);
 
     dragInterval = setInterval(function () {
         if (dragDirection == "left") {
@@ -379,12 +371,15 @@ body.addEventListener('dragstart', function (event) {
     }, 300)
 })
 
-body.addEventListener('dragend', function (event) {
-    if (dragDirection == "left") {
-        turnSlideLeft()
+slideContainer.addEventListener('dragover', function (event) {
+    if (dragStart - event.clientX >= 0) {
+        dragDirection = "left"
     } else {
-        turnSlideRight()
+        dragDirection = "right"
     }
+})
+
+body.addEventListener('dragend', function (event) {
     clearInterval(dragInterval)
 })
 
