@@ -68,17 +68,15 @@ ul {
     align-items: center;
     position: relative;
     background-color: grey;
-    height: 80vh;
+    height: 90vh;
     justify-content: center;
     z-index: 0;
 }
 
 .slideshow-container {
-    position: relative;
     background-color: grey;
     width: 100%;
-    padding: 0 0;
-    z-index: 999;
+    padding: 0 5%;
 }
 
 .slideshow-container img {
