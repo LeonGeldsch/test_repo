@@ -351,7 +351,7 @@ document.addEventListener('keydown', function(e) {
     console.log(e.code);
 })
 
-
+/*
 body.addEventListener('dragstart', function (event) {
     dragStart = event.clientX
 
@@ -383,6 +383,7 @@ slideContainer.addEventListener('dragover', function (event) {
 body.addEventListener('dragend', function (event) {
     clearInterval(dragInterval)
 })
+*/
 
 
 
