@@ -332,7 +332,15 @@ function zeroToThree(slide, delay = 0) {
 }
 
 
-
+document.addEventListener('keydown', function(e) {
+    if (e.code == "ArrowLeft") {
+        turnSlideLeft()
+    }
+    if (e.code == "ArrowRight") {
+        turnSlideRight()
+    }
+    console.log(e.code);
+})
 
 
 slideRightButton.addEventListener('click', turnSlideRight)
