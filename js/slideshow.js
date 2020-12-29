@@ -21,6 +21,10 @@ var dragDirection = null
 
 var dragInterval = null
 
+var currentDragX = null
+
+var dragDirectionInterval = null
+
 
 /*
 var shownSlides = allSlides.length
@@ -159,7 +163,7 @@ function moveSlideTo (slide, index, delay = 0) {
             delay
         )
         setZIndex(slide, shownSlides - index)
-        console.log("top right")
+        //console.log("top right")
     } else if (index == shownSlides * 0.75) {
         slideTo(
             slide,
@@ -171,7 +175,7 @@ function moveSlideTo (slide, index, delay = 0) {
             delay
         )
         setZIndex(slide, shownSlides - index)
-        console.log("right");
+        //console.log("right");
     } else if (index > shownSlides * 0.5) {
         slideTo(
             slide,
@@ -183,7 +187,7 @@ function moveSlideTo (slide, index, delay = 0) {
             delay
         )
         setZIndex(slide, shownSlides - index)
-        console.log("bottom right");
+        //console.log("bottom right");
     } else if (index == shownSlides * 0.5) {
         slideTo(
             slide, 
@@ -195,7 +199,7 @@ function moveSlideTo (slide, index, delay = 0) {
             delay
         )
         setZIndex(slide, index)
-        console.log("bottom");
+        //console.log("bottom");
     } else if (index == 0) {
         slideTo(
             slide, 
@@ -207,7 +211,7 @@ function moveSlideTo (slide, index, delay = 0) {
             delay
         )
         setZIndex(slide, index)
-        console.log("top");
+        //console.log("top");
     } else if (index == shownSlides * 0.25) {
         slideTo(
             slide,
@@ -219,7 +223,7 @@ function moveSlideTo (slide, index, delay = 0) {
             delay
         )
         setZIndex(slide, index)
-        console.log("left");
+        //console.log("left");
     } else  if (index < shownSlides * 0.25) {
         slideTo(
             slide, 
@@ -231,7 +235,7 @@ function moveSlideTo (slide, index, delay = 0) {
             delay
         )
         setZIndex(slide, index)
-        console.log("top left");
+        //console.log("top left");
     } else if (index < shownSlides * 0.5) {
         slideTo(
             slide, 
@@ -243,7 +247,7 @@ function moveSlideTo (slide, index, delay = 0) {
             delay
         )
         setZIndex(slide, index)
-        console.log("bottom left");
+        //console.log("bottom left");
     }
 } 
 
@@ -374,6 +378,9 @@ slideContainer.addEventListener('dragstart', function (event) {
             turnSlideRight()
         }
     }, 300)
+    dragDirectionInterval = setInterval(function () {
+        dragStart = currentDragX
+    }, 50)
 
     var dragIcon = document.createElement('img');
     dragIcon.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';    
@@ -381,6 +388,7 @@ slideContainer.addEventListener('dragstart', function (event) {
     event.dataTransfer.setDragImage(dragIcon, -10, -10);
 })
 
+/*
 allImages = document.querySelectorAll('img')
 
 allImages.forEach(image => {
@@ -388,18 +396,21 @@ allImages.forEach(image => {
         event
     })
 })
+*/
 
 
 slideContainer.addEventListener('dragover', function (event) {
-    if (dragStart - event.clientX >= 0) {
+    if (dragStart - event.clientX > 0) {
         dragDirection = "left"
-    } else {
+    } else if (dragStart - event.clientX < 0) {
         dragDirection = "right"
     }
+    currentDragX = event.clientX
 })
 
 slideContainer.addEventListener('dragend', function (event) {
     clearInterval(dragInterval)
+    clearInterval(dragDirectionInterval)
 })
 
 
