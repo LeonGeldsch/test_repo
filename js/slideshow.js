@@ -353,7 +353,7 @@ document.addEventListener('keydown', function(e) {
     console.log(e.code);
 })
 
-slideContainer.addEventListener('dragover', function (event) {
+slideContainer.addEventListener('touchmove', function (event) {
     if (dragStart - event.clientX >= 0) {
         dragDirection = "left"
     } else {
@@ -361,7 +361,7 @@ slideContainer.addEventListener('dragover', function (event) {
     }
 })
 
-body.addEventListener('dragstart', function (event) {
+body.addEventListener('touchstart', function (event) {
     dragStart = event.clientX
 
     dragInterval = setInterval(function () {
@@ -373,7 +373,7 @@ body.addEventListener('dragstart', function (event) {
     }, 300)
 })
 
-body.addEventListener('dragend', function (event) {
+body.addEventListener('touchend', function (event) {
     clearInterval(dragInterval)
 })
 
