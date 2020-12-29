@@ -3,11 +3,22 @@ var slideLeftButton = document.querySelector(".btn-left")
 
 var allSlides = document.querySelectorAll(".slideshow-image")
 
+var slideContainer = document.querySelector(".slideshow-container")
+
+var body = document.querySelector("body")
+
 var tl = gsap.timeline()
 
 var firstSlideIndex = 0
 
 var maxShownSlides = 6
+
+var dragStart = 0
+
+var dragDirection = null
+
+var dragInterval = null
+
 
 
 /*
@@ -341,6 +352,34 @@ document.addEventListener('keydown', function(e) {
     }
     console.log(e.code);
 })
+
+slideContainer.addEventListener('dragover', function (event) {
+    if (dragStart - event.clientX >= 0) {
+        dragDirection = "left"
+    } else {
+        dragDirection = "right"
+    }
+})
+
+body.addEventListener('dragstart', function (event) {
+    dragStart = event.clientX
+
+    dragInterval = setInterval(function () {
+        if (dragDirection == "left") {
+            turnSlideLeft()
+        } else {
+            turnSlideRight()
+        }
+    }, 300)
+})
+
+body.addEventListener('dragend', function (event) {
+    clearInterval(dragInterval)
+})
+
+
+
+
 
 
 slideRightButton.addEventListener('click', turnSlideRight)
