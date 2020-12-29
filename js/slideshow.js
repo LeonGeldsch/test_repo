@@ -71,6 +71,7 @@ function turnSlideLeft () {
 
 
 function startSlideShow () {
+    /*
     zeroToOne(allSlides[0])
     oneToTwo(allSlides[0], 1)
     twoToThreeStart(allSlides[0], 2)
@@ -81,6 +82,19 @@ function startSlideShow () {
     zeroToOne(allSlides[2], 2)
 
     firstSlideIndex = 3
+    */
+    moveSlideTo(allSlides[0], 0)
+    moveSlideTo(allSlides[1], 1)
+    moveSlideTo(allSlides[2], 2)
+    moveSlideTo(allSlides[3], 3)
+    moveSlideTo(allSlides[4], 4)
+    moveSlideTo(allSlides[5], 5)
+    moveSlideTo(allSlides[6], 6)
+    moveSlideTo(allSlides[7], 7)
+    moveSlideTo(allSlides[8], 8)
+    moveSlideTo(allSlides[9], 9)
+    moveSlideTo(allSlides[10], 10)
+    moveSlideTo(allSlides[11], 11)
 }
 
 
@@ -106,18 +120,7 @@ function slideTo(slide, positionX, positionY, width, duration, ease, delay = 0) 
 
 
 
-moveSlideTo(allSlides[0], 0)
-moveSlideTo(allSlides[1], 1)
-moveSlideTo(allSlides[2], 2)
-moveSlideTo(allSlides[3], 3)
-moveSlideTo(allSlides[4], 4)
-moveSlideTo(allSlides[5], 5)
-moveSlideTo(allSlides[6], 6)
-moveSlideTo(allSlides[7], 7)
-moveSlideTo(allSlides[8], 8)
-moveSlideTo(allSlides[9], 9)
-moveSlideTo(allSlides[10], 10)
-moveSlideTo(allSlides[11], 11)
+
 
 
 function setZIndex(slide, zindex, delay = 0) {
@@ -393,7 +396,6 @@ slideContainer.addEventListener('dragover', function (event) {
     } else {
         dragDirection = "right"
     }
-    console.log('WORKS!!!');
 })
 
 slideContainer.addEventListener('dragend', function (event) {
@@ -405,4 +407,4 @@ slideContainer.addEventListener('dragend', function (event) {
 slideRightButton.addEventListener('click', turnSlideRight)
 slideLeftButton.addEventListener('click', turnSlideLeft)
 
-//startSlideShow()
+startSlideShow()
