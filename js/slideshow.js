@@ -360,7 +360,7 @@ body.addEventListener('dragstart', function (event) {
         } else {
             turnSlideRight()
         }
-    }, 20);
+    }, 50);
 
     dragInterval = setInterval(function () {
         if (dragDirection == "left") {
