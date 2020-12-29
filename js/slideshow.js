@@ -374,13 +374,14 @@ slideContainer.addEventListener('dragstart', function (event) {
     dragInterval = setInterval(function () {
         if (dragDirection == "left") {
             turnSlideLeft()
-        } else {
+        } else if (dragDirection == "right") {
             turnSlideRight()
+        } else {
         }
     }, 300)
     dragDirectionInterval = setInterval(function () {
         dragStart = currentDragX
-    }, 50)
+    }, 10)
 
     var dragIcon = document.createElement('img');
     dragIcon.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';    
@@ -388,22 +389,13 @@ slideContainer.addEventListener('dragstart', function (event) {
     event.dataTransfer.setDragImage(dragIcon, -10, -10);
 })
 
-/*
-allImages = document.querySelectorAll('img')
-
-allImages.forEach(image => {
-    image.addEventListener('dragstart', function (event) {
-        event
-    })
-})
-*/
-
-
 slideContainer.addEventListener('dragover', function (event) {
     if (dragStart - event.clientX > 0) {
         dragDirection = "left"
     } else if (dragStart - event.clientX < 0) {
         dragDirection = "right"
+    } else {
+        dragDirection = "none"
     }
     currentDragX = event.clientX
 })

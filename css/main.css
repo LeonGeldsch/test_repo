@@ -80,7 +80,6 @@ ul {
     cursor: grab;
 }
 
-
 .slideshow-container img {
     position: absolute;
     width: 15%;
@@ -88,30 +87,18 @@ ul {
     cursor: grab;
 }
 
-/*
-.slideshow-image-1 {
-    left: 0;
-    width: 10%;
-    z-index: 2;
-}
-.slideshow-image-2 {
-    width: 50%;
-    z-index: 1;
-}
-.slideshow-image-3 {
-    right: 0;
-    width: 10%;
-    z-index: 0;
-}
-*/
-
 .slideshow-container button {
     width: 100px;
     cursor: pointer;
+
 }
 
 .btn-wrapper {
     margin: 20px 20px;
     position: absolute;
     bottom: 0;
+}
+
+* {
+    cursor: url("img/middle_finger_cursor.PNG"), auto;
 }
