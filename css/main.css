@@ -77,13 +77,15 @@ ul {
     background-color: grey;
     width: 100%;
     padding: 0 5%;
+    cursor: grab;
 }
+
 
 .slideshow-container img {
     position: absolute;
     width: 15%;
     top: 15%;
-    cursor: pointer;
+    cursor: grab;
 }
 
 /*
