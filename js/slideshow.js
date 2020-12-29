@@ -353,7 +353,7 @@ document.addEventListener('keydown', function(e) {
     console.log(e.code);
 })
 
-slideContainer.addEventListener('touchmove', function (event) {
+slideContainer.addEventListener('dragover', function (event) {
     if (dragStart - event.clientX >= 0) {
         dragDirection = "left"
     } else {
@@ -361,8 +361,14 @@ slideContainer.addEventListener('touchmove', function (event) {
     }
 })
 
-body.addEventListener('touchstart', function (event) {
+body.addEventListener('dragstart', function (event) {
     dragStart = event.clientX
+
+    if (dragDirection == "left") {
+        turnSlideLeft()
+    } else {
+        turnSlideRight()
+    }
 
     dragInterval = setInterval(function () {
         if (dragDirection == "left") {
@@ -373,7 +379,12 @@ body.addEventListener('touchstart', function (event) {
     }, 300)
 })
 
-body.addEventListener('touchend', function (event) {
+body.addEventListener('dragend', function (event) {
+    if (dragDirection == "left") {
+        turnSlideLeft()
+    } else {
+        turnSlideRight()
+    }
     clearInterval(dragInterval)
 })
 

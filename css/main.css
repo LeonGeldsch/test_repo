@@ -74,10 +74,11 @@ ul {
 }
 
 .slideshow-container {
+    position: absolute;
     background-color: grey;
     width: 100%;
     padding: 0 5%;
-    z-index: 0;
+    z-index: 999;
 }
 
 .slideshow-container img {
