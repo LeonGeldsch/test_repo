@@ -90,7 +90,6 @@ ul {
 .slideshow-container button {
     width: 100px;
     cursor: pointer;
-
 }
 
 .btn-wrapper {
@@ -99,6 +98,10 @@ ul {
     bottom: 0;
 }
 
-* {
-    cursor: url("img/middle_finger_cursor.PNG"), auto;
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+.cursor-default {
+    cursor: default !important;
 }
