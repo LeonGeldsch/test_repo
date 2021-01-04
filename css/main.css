@@ -25,16 +25,6 @@
 
 *, *::before, *::after {
     box-sizing: border-box;
-    scrollbar-color: rgba(255, 99, 71, 0)  rgba(255, 99, 71, 0);
-    scrollbar-width: none;
-    padding-right: 0px;
-}
-
-*:hover {
-    scrollbar-color: blue white;
-    scrollbar-width: thin;
-    transition: scrollbar-color 2s;
-    padding-right: 0;
 }
 
 body {
