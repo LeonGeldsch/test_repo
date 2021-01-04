@@ -104,20 +104,11 @@ function slideTo(slide, positionX, positionY, width, duration, ease, delay = 0) 
 
 var shownSlides = 12
 
-/*
 moveSlideTo(allSlides[0], 0)
 moveSlideTo(allSlides[1], 1)
 moveSlideTo(allSlides[2], 2)
 moveSlideTo(allSlides[3], 3)
-moveSlideTo(allSlides[4], 4)
-moveSlideTo(allSlides[5], 5)
-moveSlideTo(allSlides[6], 6)
-moveSlideTo(allSlides[7], 7)
-moveSlideTo(allSlides[8], 8)
-moveSlideTo(allSlides[9], 9)
-moveSlideTo(allSlides[10], 10)
-moveSlideTo(allSlides[11], 11)
-*/
+
 
 function setZIndex(slide, zindex, delay = 0) {
     gsap.set(slide, {
@@ -144,10 +135,10 @@ function moveSlideTo (slide, index, delay = 0) {
     */
 
 
-    if (index > shownSlides * 0.75) {
+    if (index > shownSlides.length * 0.75) {
         slideTo(
             slide,
-            percentWidthToPixel(slide.parentNode, 38) - (percentWidthToPixel(slide.parentNode, 50) / 4 * (index % 3)),
+            percentWidthToPixel(slide.parentNode, 38) - (percentWidthToPixel(slide.parentNode, 50) / (allSlides.length / 3) * (index % 3)),
             percentHeightToPixel(slide.parentNode, 15) - percentHeightToPixel(slide.parentNode, 10) / 4 * (index % 3 + 3),
             percentWidthToPixel(slide.parentNode, 20) - percentWidthToPixel(slide.parentNode, 5) / 4 * (index % 3),
             1,
@@ -156,7 +147,7 @@ function moveSlideTo (slide, index, delay = 0) {
         )
         setZIndex(slide, shownSlides - index)
         console.log("top right")
-    } else if (index == shownSlides * 0.75) {
+    } else if (index == shownSlides.length * 0.75) {
         slideTo(
             slide,
             percentWidthToPixel(slide.parentNode, 40),
@@ -168,7 +159,7 @@ function moveSlideTo (slide, index, delay = 0) {
         )
         setZIndex(slide, shownSlides - index)
         console.log("right");
-    } else if (index > shownSlides * 0.5) {
+    } else if (index > shownSlides.length * 0.5) {
         slideTo(
             slide,
             percentWidthToPixel(slide.parentNode, 10) + (percentWidthToPixel(slide.parentNode, 45)  / 4 * (index % 3)),
@@ -180,7 +171,7 @@ function moveSlideTo (slide, index, delay = 0) {
         )
         setZIndex(slide, shownSlides - index)
         console.log("bottom right");
-    } else if (index == shownSlides * 0.5) {
+    } else if (index == shownSlides.length * 0.5) {
         slideTo(
             slide, 
             percentWidthToPixel(slide.parentNode, 0),
@@ -204,7 +195,7 @@ function moveSlideTo (slide, index, delay = 0) {
         )
         setZIndex(slide, index)
         console.log("top");
-    } else if (index == shownSlides * 0.25) {
+    } else if (index == shownSlides.length * 0.25) {
         slideTo(
             slide,
             -percentWidthToPixel(slide.parentNode, 40),
@@ -216,7 +207,7 @@ function moveSlideTo (slide, index, delay = 0) {
         )
         setZIndex(slide, index)
         console.log("left");
-    } else  if (index < shownSlides * 0.25) {
+    } else  if (index < shownSlides.length * 0.25) {
         slideTo(
             slide, 
             (-percentWidthToPixel(slide.parentNode, 50) + percentWidthToPixel(slide.parentNode, 10)) / 3 * index,
@@ -393,4 +384,3 @@ body.addEventListener('dragend', function (event) {
 slideRightButton.addEventListener('click', turnSlideRight)
 slideLeftButton.addEventListener('click', turnSlideLeft)
 
-startSlideShow()

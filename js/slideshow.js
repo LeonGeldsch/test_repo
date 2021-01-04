@@ -369,7 +369,7 @@ slideContainer.addEventListener('dragstart', function (event) {
         } else {
             turnSlideRight()
         }
-    }, 50)
+    }, 2)
 
     dragInterval = setInterval(function () {
         if (dragDirection == "left") {
