@@ -17,7 +17,7 @@ var shownSlides = allSlides.length
 
 var dragStart = 0
 
-var dragDirection = null
+var dragDirection = "none"
 
 var dragInterval = null
 
@@ -381,7 +381,7 @@ slideContainer.addEventListener('dragstart', function (event) {
     }, 300)
     dragDirectionInterval = setInterval(function () {
         dragStart = currentDragX
-    }, 10)
+    }, 1)
 
     var dragIcon = document.createElement('img');
     dragIcon.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';    
