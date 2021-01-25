@@ -32,7 +32,6 @@ body {
     margin: 0 0;
     background-color: #f1f1f1;
     font-family: 'whitney', sans-serif;
-    min-height: 200vh;
     overflow-x: hidden;
 }
 
@@ -50,6 +49,48 @@ ul {
 
 .bg-blue {
     background-color: #4363d8 !important;
+}
+
+.bg-white {
+    background-color: white !important;
+}
+
+.bg-lightgrey {
+    background-color: #f1f1f1 !important;
+}
+
+.title {
+    font-size: 3em;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    font-family: 'whitney-bold';
+}
+
+.title2 {
+    font-size: 2em;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    font-family: 'whitney';
+}
+
+.subtitle {
+    font-weight: 500;
+    font-size: 1.2em;
+    margin-bottom: 2rem;
+    line-height: 2rem;
+    font-family: 'whitney-book';
+}
+
+.text-wrapper {
+    max-width: 380px;
+    margin: 0 30px;
+}
+
+.section {
+    color: #23272a;
+    display: flex;
+    align-items: center;
+    min-height: 700px;
 }
 
 .main-header {
@@ -88,9 +129,66 @@ ul {
 }
 
 .slideshow-container button {
+    border: none;
     width: 100px;
+    height: 40px;
     cursor: pointer;
+    color: #23272a;
+    background-color: #ffffff;
+    border-radius: 1.2rem;
+    padding: .6rem 1rem;
+    margin: 10px 10px;
+    font-family: 'whitney-book';
+    box-shadow: none; transition: box-shadow .2s;
 }
+
+.slideshow-container button:hover {
+
+    background-color: #585858;
+    transition: background-color .3s;
+    border-color: #585858;
+
+
+    /* BOX SHADOW DOESN'T WORK WITH ::BEFORE TAG
+    box-shadow: 10px 10px 26px -7px rgba(0,0,0,0.44); transition: box-shadow .2s;
+    */
+}
+
+
+.btn-right::before {
+    background-color: grey;
+    position: absolute;
+    border: none;
+    content: '';
+    width: 0; 
+    height: 0; 
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    right: 10px;
+    border-left: 20px solid #4363d8;
+    top: 10px;
+}
+
+.btn-left::before {
+    background-color: grey;
+    position: absolute;
+    border: none;
+    content: '';
+    width: 0; 
+    height: 0; 
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    left: 10px;
+    border-right: 20px solid #4363d8;
+    top: 10px;
+}
+
+.btn-left {
+    padding-left: 30px !important;
+} 
+.btn-right {
+    padding-right: 30px !important;
+} 
 
 .btn-wrapper {
     margin: 20px 20px;
@@ -106,5 +204,6 @@ ul {
     cursor: default !important;
 }
 
-
-
+.wave2 {
+    transform: rotate(180deg);
+}
