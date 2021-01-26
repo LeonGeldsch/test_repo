@@ -89,8 +89,13 @@ ul {
 .section {
     color: #23272a;
     display: flex;
-    align-items: center;
     min-height: 700px;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    display: flex; 
 }
 
 .main-header {
@@ -206,4 +211,38 @@ ul {
 
 .wave2 {
     transform: rotate(180deg);
+}
+
+.wave {
+    margin-bottom: -3px;
+}
+
+
+.footer {
+    padding: 50px 200px;
+    font-family: 'whitney-light';
+    width: 100%;
+    justify-content: center;
+    background-color: #23272a;
+}
+
+.footer h1 {
+    color: #7289da;
+}
+
+.footer ul {
+    list-style: none;
+    margin: 0 20px;
+}
+
+.footer ul h1 {
+    font-size: 1rem;
+}
+
+.footer ul p {
+    color: #f1f1f1;
+}
+
+.footer a {
+    text-decoration: none;
 }
