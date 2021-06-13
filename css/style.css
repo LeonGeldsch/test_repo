@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --text-color: #eee;
+}
+
+body {
+    font-family: 'Roboto Mono', sans-serif;
+    background-color: #0f0f0f;
+    color: var(--text-color);
+    letter-spacing: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.typewriter-container {
+    display: flex;
+}
+
+.selected-character {
+    position: relative;
+    animation-duration: 1s;
+}
+
+.selected-character::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 1rem;
+    width: 0.5rem;
+    height: 0.3rem;
+    background-color: var(--text-color);
+    animation: 1s blink step-end infinite;
+    animation-duration: inherit;
+}
+
+
+@keyframes blink {
+    from, 
+    to {
+        background-color: var(--text-color);
+    }
+    50% {
+        background-color: transparent;
+    }
+}
